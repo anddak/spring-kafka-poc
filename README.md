@@ -17,8 +17,24 @@ Navigate to kafka local folder /bin:
 ```kafka-server-start.sh config/server.properties```
 
 
+# branch: kafka-with-rest-controller
+
+- refactored POC and added a controller that takes in a producer and sends the message to the consumer 
+- sending messages will display in the logs of spring boot
+
+- zookeper and kafka server must be started first (above)
+
+- with CURL: curl -X POST -F 'message=test' http://localhost:8080/kafka/publish
+- with Postman: set POST request, add http://localhost:8080/kafka/publish as address and 'message' as key in form data, while the message you want to send, as value
+
+
 #### Resources
 
 https://kafka.apache.org/quickstart#quickstart_download
 
 https://codenotfound.com/spring-kafka-consumer-producer-example.html
+
+https://www.confluent.io/blog/apache-kafka-spring-boot-application#one
+
+
+
