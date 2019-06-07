@@ -1,2 +1,24 @@
-kafka:
-  bootstrap-servers: localhost:9092
+
+#below is for the public gmail smtp configuration, another free one you could use is Amazon SES
+spring:
+  mail:
+    host: smtp.gmail.com
+    username: ADD USERNAME HERE
+    password: ADD PASSWORD HERE - this is not your standard gmail password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+        group-id: group_id
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+        bootstrap-servers: localhost:9092
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer

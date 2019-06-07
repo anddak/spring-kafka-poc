@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+/*
+KAFKA producer
+ */
 @Service
 public class Producer {
 
   private static final Logger logger = LoggerFactory.getLogger(Producer.class);
-  private static final String TOPIC = "users";
+  private static final String TOPIC = "files";
 
   private KafkaTemplate<String, String> kafkaTemplate;
 
